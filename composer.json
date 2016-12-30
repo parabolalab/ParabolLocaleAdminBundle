@@ -1,0 +1,23 @@
+{
+    "name": "parabol/parabol-locale-admin-bundle",
+    "type": "symfony-bundle",
+    "minimum-stability": "stable",
+    "description": "Admin bundle to manage locales for cms base on symfony2admingenerator.",
+    "keywords": ["locales"],
+    "homepage": "https://github.com/parabolalab/ParabolLocaleAdminBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Kalota",
+            "email": "marcin@parabolalab.com",
+            "homepage": "http://www.parabolalab.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-0": { "Parabol\\LocaleAdminBundle": "" }
+    },
+    "target-dir": "Parabol/LocaleAdminBundle"
+}

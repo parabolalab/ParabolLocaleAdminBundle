@@ -1,0 +1,8 @@
+{% extends_admingenerated "ParabolLocaleAdminBundle:CountryNew:form.html.twig" %}
+
+{% block form_row_code %}
+    {{ form_row(form['code']) }}
+    {% include 'ParabolLocaleBundle:Country:_filler.html.twig' %}
+{% endblock form_row_code %}
+
+

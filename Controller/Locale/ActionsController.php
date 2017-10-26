@@ -16,9 +16,9 @@ class ActionsController extends BaseActionsController
 		$request = $this->get('request_stack')->getCurrentRequest();
 
 
-		$defaultsFile = $this->container->getParameter('parabol_locale_admin.default_transaltions_file');
+		$defaultsFile = $this->container->getParameter('parabol_locale_admin.source_transaltions_file');
 
-		if(!file_exists($defaultsFile)) throw new \Exception(sprintf("File %s defined in parabol_locale_admin.default_transaltions_file does not exist.", $defaultsFile));
+		if(!file_exists($defaultsFile)) throw new \Exception(sprintf("File %s defined in parabol_locale_admin.source_transaltions_file does not exist.", $defaultsFile));
 		
 
 		$transaltionsFile = preg_replace('#\.[\w]{2}\.yml$#', '.' . $country->getCode() . '.yml', $defaultsFile);
@@ -85,7 +85,6 @@ class ActionsController extends BaseActionsController
 		$cachedFiles = $this->container->getParameter('kernel.root_dir').'/cache/*/translations/catalogue.'. $country->getCode().'.*';
 
 		foreach (glob($cachedFiles) as $file) {
-			var_dump($file);
 			 unlink($file);
 		}
 	}
@@ -96,7 +95,7 @@ class ActionsController extends BaseActionsController
 			function($arr, $v){ $arr[$v['id']] = $v['code']; return $arr;}
 			, array()));
 		
-		return $this->render('AppBundle:CountryActions:_translationsEnabler.html.twig', array('countriesJsonMap' => $countriesJsonMap));
+		return $this->render('ParabolLocaleAdminBundle:CountryActions:_translationsEnabler.html.twig', array('countriesJsonMap' => $countriesJsonMap));
 	}
 
 }

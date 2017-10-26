@@ -1,4 +1,19 @@
 services:
-#    parabol_locale_admin.example:
-#        class: Parabol\LocaleAdminBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    parabol.admin_menu.locales_and_countries:
+            class: Parabol\AdminCoreBundle\Menu\MenuItem
+            arguments: [ "Locales & Countries", "parabol_locale_admin_locale", null, "fa fa-language", null, null, "ROLE_ADMIN" ]
+            tags:
+                -  { name: parabol.admin_menu }
+
+    parabol.admin_menu.locales:
+            class: Parabol\AdminCoreBundle\Menu\MenuItem
+            arguments: [ "Locales", "parabol_locale_admin_locale", null, "fa fa-language", null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
+            tags:
+                -  { name: parabol.admin_menu }
+    
+    
+    parabol.admin_menu.countries:
+            class: Parabol\AdminCoreBundle\Menu\MenuItem
+            arguments: [ "Countries", "parabol_locale_admin_country", null, "fa fa-globe", null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
+            tags:
+                -  { name: parabol.admin_menu }

@@ -1,0 +1,4 @@
+parabol_locale_admin:
+    resource: '@ParabolLocaleAdminBundle/Resources/config/routing.yml'
+    prefix:   /admin
+    options: { i18n: false }

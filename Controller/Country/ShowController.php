@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Country;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseCountryController\ShowController as BaseShowController;
+use Admingenerated\AppLocaleAdminBundle\BaseCountryController\ShowController as BaseShowController;
 
 /**
  * ShowController

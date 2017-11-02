@@ -1,16 +1,16 @@
 parabol_locale_admin_country:
-    resource: "@ParabolLocaleAdminBundle/Controller/Country/"
+    resource: "@AppLocaleAdminBundle/Controller/Country/"
     type:     admingenerator
     prefix:   /country
     options: { i18n: false }
 
 parabol_locale_admin_locale:
-    resource: "@ParabolLocaleAdminBundle/Controller/Locale/"
+    resource: "@AppLocaleAdminBundle/Controller/Locale/"
     type:     admingenerator
     prefix:   /locale
     options: { i18n: false }
 
 parabol_locale_admin_country_info:
     path: /country/action/info/{code}
-    defaults:  { _controller: ParabolLocaleAdminBundle:Country/Actions:countryInfo }
+    defaults:  { _controller: AppLocaleAdminBundle:Country/Actions:countryInfo }
     options: { i18n: false }

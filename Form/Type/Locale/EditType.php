@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Form\Type\Locale;
 
-use Admingenerated\ParabolLocaleAdminBundle\Form\BaseLocaleType\EditType as BaseEditType;
+use Admingenerated\AppLocaleAdminBundle\Form\BaseLocaleType\EditType as BaseEditType;
 
 /**
  * EditType

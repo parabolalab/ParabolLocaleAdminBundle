@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Country;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseCountryController\ActionsController as BaseActionsController;
+use Admingenerated\AppLocaleAdminBundle\BaseCountryController\ActionsController as BaseActionsController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * ActionsController

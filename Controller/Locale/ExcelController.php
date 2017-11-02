@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Locale;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseLocaleController\ExcelController as BaseExcelController;
+use Admingenerated\AppLocaleAdminBundle\BaseLocaleController\ExcelController as BaseExcelController;
 
 /**
  * ExcelController

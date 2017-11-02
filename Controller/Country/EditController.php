@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Country;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseCountryController\EditController as BaseEditController;
+use Admingenerated\AppLocaleAdminBundle\BaseCountryController\EditController as BaseEditController;
 
 /**
  * EditController

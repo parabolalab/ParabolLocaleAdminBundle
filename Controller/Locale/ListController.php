@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Locale;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseLocaleController\ListController as BaseListController;
+use Admingenerated\AppLocaleAdminBundle\BaseLocaleController\ListController as BaseListController;
 
 /**
  * ListController

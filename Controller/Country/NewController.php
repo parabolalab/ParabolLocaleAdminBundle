@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Country;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseCountryController\NewController as BaseNewController;
+use Admingenerated\AppLocaleAdminBundle\BaseCountryController\NewController as BaseNewController;
 use Symfony\Component\HttpFoundation\Request;
 /**
  * NewController

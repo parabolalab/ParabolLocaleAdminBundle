@@ -2,7 +2,7 @@
 
 namespace Parabol\LocaleAdminBundle\Controller\Locale;
 
-use Admingenerated\ParabolLocaleAdminBundle\BaseLocaleController\ActionsController as BaseActionsController;
+use Admingenerated\AppLocaleAdminBundle\BaseLocaleController\ActionsController as BaseActionsController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
 /**

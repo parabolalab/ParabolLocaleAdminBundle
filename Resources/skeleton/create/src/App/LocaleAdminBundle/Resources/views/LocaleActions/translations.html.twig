@@ -1,0 +1,38 @@
+{% extends "ParabolAdminCoreBundle::base_admin_uncompressed.html.twig" %}
+
+{% block page_content %}
+	<h1>{{ title }}</h1>
+{% block page_header_content %}
+       
+{% endblock page_header_content %}
+
+<div class="box box-primary">
+	<form action="" method="post" class="form-model-action">
+		<div class="box-body form-model-content">
+			{% for key,value in defaults %}
+				<div class="row">
+				    <div class="col-md-12">
+						<label class="control-label" for="translations_{{ loop.index }}">{{ key }}</label>
+						<input id="translations_{{ loop.index }}" name="translations[{{ key }}]" class="form-control" value="{{ translations is not empty and translations[key] is defined ? translations[key] : '' }}" type="text">
+						<br />
+					</div>
+				</div>
+
+			{% endfor %}
+			<div class="box-footer">
+				<div class="form-model-actions row">
+					<div class="form-model-actions-generic col-md-12 text-right" role="generic-actions">
+						<button type="submit" name="save" class="generic-action btn btn-success"><i class="fa fa-fw fa-check"></i> {{ "action.generic.save"|trans({}, "Admingenerator")|raw }}
+						</button>
+						<a class="generic-action btn btn-default" href="{{ path('Parabol_LocaleAdminBundle_Locale_list') }}"><i class="fa fa-fw fa-list-alt"></i> {{ "action.generic.list"|trans({}, "Admingenerator")|raw }}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+{# {{ dump(translations) }} #}
+
+{% endblock page_content %}

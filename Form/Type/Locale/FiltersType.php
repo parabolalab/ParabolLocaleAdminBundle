@@ -2,11 +2,14 @@
 
 namespace Parabol\LocaleAdminBundle\Form\Type\Locale;
 
-use Admingenerated\ParabolLocaleAdminBundle\Form\BaseLocaleType\FiltersType as BaseFiltersType;
+use Admingenerated\AppLocaleAdminBundle\Form\BaseLocaleType\FiltersType as BaseFiltersType;
 
 /**
  * FiltersType
  */
 class FiltersType extends BaseFiltersType
 {
+	use 
+		\Parabol\BaseBundle\Form\Type\Base\BaseType
+	;
 }

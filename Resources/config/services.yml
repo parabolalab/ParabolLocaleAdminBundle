@@ -1,19 +1,19 @@
 services:
-    parabol.admin_menu.locales_and_countries:
-            class: Parabol\AdminCoreBundle\Menu\MenuItem
-            arguments: [ "Locales & Countries", "App_LocaleAdminBundle_Locale_list", null, "fa fa-language", null, null, "ROLE_ADMIN" ]
-            tags:
-                -  { name: parabol.admin_menu }
+    # parabol.admin_menu.locales_and_countries:
+    #         class: Parabol\AdminCoreBundle\Menu\MenuItem
+    #         arguments: [ "Locales & Countries", "App_LocaleAdminBundle_Locale_list", null, "fa fa-language", null, null, "ROLE_ADMIN" ]
+    #         tags:
+    #             -  { name: parabol.admin_menu }
 
-    parabol.admin_menu.locales:
-            class: Parabol\AdminCoreBundle\Menu\MenuItem
-            arguments: [ "Locales", "App_LocaleAdminBundle_Locale_list", null, null, null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
-            tags:
-                -  { name: parabol.admin_menu }
+    # parabol.admin_menu.locales:
+    #         class: Parabol\AdminCoreBundle\Menu\MenuItem
+    #         arguments: [ "Locales", "App_LocaleAdminBundle_Locale_list", null, null, null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
+    #         tags:
+    #             -  { name: parabol.admin_menu }
     
     
-    parabol.admin_menu.countries:
-            class: Parabol\AdminCoreBundle\Menu\MenuItem
-            arguments: [ "Countries", "App_LocaleAdminBundle_Country_list", null, null, null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
-            tags:
-                -  { name: parabol.admin_menu }
+    # parabol.admin_menu.countries:
+    #         class: Parabol\AdminCoreBundle\Menu\MenuItem
+    #         arguments: [ "Countries", "App_LocaleAdminBundle_Country_list", null, null, null, "parabol.admin_menu.locales_and_countries", "ROLE_ADMIN" ]
+    #         tags:
+    #             -  { name: parabol.admin_menu }

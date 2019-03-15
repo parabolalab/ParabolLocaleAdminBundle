@@ -12,7 +12,7 @@ class ActionsController extends BaseActionsController
 {
 	public function attemptObjectTranslations($pk)
 	{
-		$country = $this->getObject($pk);
+		$locale = $this->getObject($pk);
 		$request = $this->get('request_stack')->getCurrentRequest();
 
 
@@ -21,8 +21,8 @@ class ActionsController extends BaseActionsController
 		if(!file_exists($defaultsFile)) throw new \Exception(sprintf("File %s defined in parabol_locale_admin.source_transaltions_file does not exist.", $defaultsFile));
 		
 
-		$transaltionsFile = preg_replace('#\.[\w]{2}\.yml$#', '.' . $country->getCode() . '.yml', $defaultsFile);
-
+		$transaltionsFile = preg_replace('#\.[\w]+\.yml$#', '.' . $locale->getCode() . '.yml', $defaultsFile);
+		
 		if($request->isMethod(Request::METHOD_POST))
 		{
 			try
@@ -37,14 +37,15 @@ class ActionsController extends BaseActionsController
 				$success = false; 
 			}
 
-			$this->cc($country);
+			
+			$this->cc($locale);
 
 			if(!$success)
 			{
 				$this->get('session')->getFlashBag()->add('error', $this->get('translator')->trans("action.object.edit.error", array(), 'Admingenerator') );
 				return $this->redirect($request->getUri());
 			} 
-			else return $this->redirectToRoute('Parabol_LocaleAdminBundle_Locale_object', array('pk' => $pk, 'action' => 'clearCache'));
+			else return $this->redirectToRoute('App_LocaleAdminBundle_Locale_object', array('pk' => $pk, 'action' => 'clearCache'));
 		}
 
 
@@ -57,32 +58,30 @@ class ActionsController extends BaseActionsController
 		}
 		else $translations = array();
 
-		return $this->render('ParabolLocaleAdminBundle:LocaleActions:translations.html.twig', array('defaults' => $defaults, 'translations' => $translations, 'title' => 'Translations for locale: ' . $country->getCode()));
+		return $this->render('AppLocaleAdminBundle:LocaleActions:translations.html.twig', array('defaults' => $defaults, 'translations' => $translations, 'title' => 'Translations for locale: ' . $locale->getCode()));
 	}
 
 	public function attemptObjectClearCache($pk)
 	{
-		$country = $this->getObject($pk);
+		$locale = $this->getObject($pk);
 		
-		$this->cc($country);
+		$this->cc($locale);
 
 		$this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans("action.object.edit.success", array(), 'Admingenerator') );
 
-		return $this->redirectToRoute('Parabol_LocaleAdminBundle_Locale_object', array('pk' => $pk, 'action' => 'translations'));
+		return $this->redirectToRoute('App_LocaleAdminBundle_Locale_object', array('pk' => $pk, 'action' => 'translations'));
 	}
 
-	private function cc($country)
+	private function cc($locale)
 	{
-		$cachedFiles = $this->container->getParameter('kernel.root_dir').'/cache/prod/appProdUrl*';
+
+		$cachedFiles = $this->container->getParameter('kernel.cache_dir').'/appProd*';
 
 		foreach (glob($cachedFiles) as $file) {
 			 unlink($file);
 		}
 
-		$containerCache = $this->container->getParameter('kernel.root_dir').'/cache/prod/appProdProjectContainer.php';
-		if(file_exists($containerCache)) unlink($containerCache);
-
-		$cachedFiles = $this->container->getParameter('kernel.root_dir').'/cache/*/translations/catalogue.'. $country->getCode().'.*';
+		$cachedFiles = $this->container->getParameter('kernel.cache_dir').'/translations/catalogue.'. $locale->getCode().'.*';
 
 		foreach (glob($cachedFiles) as $file) {
 			 unlink($file);
@@ -95,7 +94,7 @@ class ActionsController extends BaseActionsController
 			function($arr, $v){ $arr[$v['id']] = $v['code']; return $arr;}
 			, array()));
 		
-		return $this->render('ParabolLocaleAdminBundle:CountryActions:_translationsEnabler.html.twig', array('countriesJsonMap' => $countriesJsonMap));
+		return $this->render('AppLocaleAdminBundle:CountryActions:_translationsEnabler.html.twig', array('countriesJsonMap' => $countriesJsonMap));
 	}
 
 }
